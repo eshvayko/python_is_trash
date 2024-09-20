@@ -2,7 +2,7 @@ import turtle
 t = turtle.Pen()
 t.speed(0)
 turtle.bgcolor('black')
-for x in range(2200):
+for x in range(2400):
     t.pencolor('spring green')
     t.penup()
     t.goto(0, 0)
