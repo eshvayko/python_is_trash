@@ -50,11 +50,8 @@ def drawGraph(sub):
     from matplotlib import pyplot as plt
     import math
     if sub == 'многа':
-        sub = input('Введите предметы через пробел, которые нужно нарисовать на графике (если нада все предметы то enter) ')
-        if sub == '':
-            mustSubjects = allSubjects
-        else:
-            mustSubjects = sub.split(' ')
+        sub = input('Введите предметы через пробел, которые нужно нарисовать на графике ')
+        mustSubjects = sub.split(' ')
         allDates1 = []
         for i in allDates:
             if allSubjects[allDates.index(i)] in mustSubjects:
