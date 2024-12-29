@@ -6,7 +6,7 @@ t = turtle.Pen()
 t.hideturtle()
 colors = ['red', 'blue', 'purple', 'green', 'darkturquoise', 'orange', 'brown', 'black', 'gray']
 numberOfFunctions = 0
-step = 0.5
+step = 0.05
 lineWidth = 2
 resolution = 40
 minValueX = -10

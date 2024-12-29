@@ -13,7 +13,7 @@ def clicker():
     global running
     while running:
         mouse.click(Button.left)
-        time.sleep(0.03)  # Пауза между кликами (1 мс)
+        time.sleep(0.1)  # Пауза между кликами
 
 def start_clicking():
     """Запуск автокликера."""
