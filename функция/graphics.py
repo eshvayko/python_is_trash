@@ -31,6 +31,21 @@ def drawFunction(xFrom, yT, xTo, res, step, lineWidth, color, zero):
             x += 0.001
         except:
             pass
+    try:
+        if ',' in yT:
+            xMin = float(str(yT[yT.index(',') + 1:]).split()[0])
+            xMax = float(str(yT[yT.index(',') + 1:]).split()[1])
+            if xMin > xFrom:
+                xFrom = xMin
+            if xMax < xTo:
+                xTo = xMax
+            if xMin >= xMax:
+                print('Ошибка чтения области определения')
+                return
+            yT = yT[:yT.index(',')]
+    except:
+        print('Ошибка чтения области определения')
+        return
     x = xFrom
     t.penup()
     t.goto(zero)
@@ -50,7 +65,7 @@ def drawFunction(xFrom, yT, xTo, res, step, lineWidth, color, zero):
             equation = sym.Eq(eval(leftEq), eval(rightEq))
             roots = sym.solve(equation,y)
             if len(roots) == 1:
-                if roots[0] * res > 600:
+                if roots[0] * res > 550 or roots[0] * res < -550:
                     x = round(x + step, 7)
                     continue
                 t.goto(x * res + zero[0], roots[0] * res + zero[1])
@@ -164,7 +179,7 @@ def drawFunction(xFrom, yT, xTo, res, step, lineWidth, color, zero):
         # x = round(x + step, 7)
     print(yT)
 
-def drawCoordinate(lenCellX, lenCellY, res, minValX, maxValX, minValY, maxValY, zero):
+def drawCoordinate(lenCellX, lenCellY, res, minValX, maxValX, minValY, maxValY, maxFontSize, zero):
     t.penup()
     t.pencolor('lightgray')
     i = lenCellX
@@ -198,7 +213,7 @@ def drawCoordinate(lenCellX, lenCellY, res, minValX, maxValX, minValY, maxValY, 
     while currentPoint <= maxValY:
         t.goto(zero[0], currentPoint * res + zero[1])
         t.circle(2)
-        t.write(currentPoint, font=('Arial', int(20 * res / 40), 'bold'))
+        t.write(currentPoint, font=('Arial', int(20 * res / 40) if int(20 * res / 40) <= maxFontSize else maxFontSize , 'bold'))
         currentPoint = currentPoint + 1
     currentPoint = minValX
     t.goto(zero)
@@ -206,7 +221,7 @@ def drawCoordinate(lenCellX, lenCellY, res, minValX, maxValX, minValY, maxValY, 
     while currentPoint <= maxValX:
         t.goto(currentPoint * res + zero[0], zero[1])
         t.circle(2)
-        t.write(currentPoint, font=('Arial', int(20 * res / 40), 'bold'))
+        t.write(currentPoint, font=('Arial', int(20 * res / 40) if int(20 * res / 40) <= maxFontSize else maxFontSize , 'bold'))
         currentPoint = currentPoint + 1
     t.goto(zero)
 
