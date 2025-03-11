@@ -100,7 +100,7 @@ from datetime import date
 t = turtle.Pen()
 t.speed(0)
 records = {}
-records["1_my"] = (19034, "09-03-24")  # при minStep = 5, maxStep = 10
+records["1_my"] = (19034, "09-03-24")  # при minStep = 5, maxStep = 10 (всмысле сам уровень при таких значениях (см. строку 140))
 records["2_my"] = (2525, '27-03-24')  # при minStep = 10, maxStep = 40
 records["3_my"] = (60288, '10-03-24')  # при minStep = 5, maxStep = 5
 records["4_my"] = (3092, '27-03-24')  # при minStep = 20, maxStep = 20
