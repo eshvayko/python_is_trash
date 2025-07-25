@@ -3,8 +3,8 @@ import math
 import turtle as t
 from random import randint
 
-side = 1000 # можно регулировать
-dot_size = 2 # можно регулировать
+side = 1600 # можно регулировать
+dot_size = 1 # можно регулировать
 vertexes = []
 
 t.hideturtle()
@@ -35,10 +35,11 @@ t.pendown()
 t.dot(dot_size, 'green')
 t.penup()
 
-actions = 15000 # можно регулировать
+actions = 30000 # можно регулировать
 date_start = datetime.datetime.now()
 for i in range(actions):
-    if i/actions*100 in range(10, 100, 10): print(f'Нарисовано {int(i/actions*100)}%')
+    a = round(i/actions*100, 9)
+    if a in range(1, 100): print(f'Нарисовано {int(a)}%')
     dot_go = vertexes[randint(0,2)]
     dot_now = t.position()
     add_x = (dot_go[0] - dot_now[0]) / 2
