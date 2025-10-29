@@ -3,7 +3,7 @@ import math
 import sympy as sym
 
 t = turtle.Pen()
-t.speed(0)
+t.speed("fastest")
 t.hideturtle()
 
 def findZero(lenCellX, lenCellY, res, minValX, maxValX, minValY, maxValY):
